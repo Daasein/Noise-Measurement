@@ -37,7 +37,7 @@ close all
  % gain=[10^(50/20) 1 5 10^(50/20)  1 1]; %The gain applied to each channel outside the DAQ.  Note if the gain is x dB, then this should be set to 10^(x/20).
  calibration=[ 1  1 1 1 1 1]; %ch2 is volts/(mm/s) %The calibation factors in volts/unit.  i.e. if it is a microphone, these should be volts/pascal. Measured 032715 for the 4138-A-015
  gain=[1 1 1 1  1 1]; %The gain applied to each channel outside the DAQ.  Note if the gain is x dB, then this should be set to 10^(x/20).
-numchannels=1; %The actual number of channels being used
+numchannels=2; %The actual number of channels being used
 %% Define the units for each channel. This is essential to ensure each plot is labeled correctly
 units={};
 units{1}='volts';
@@ -50,8 +50,8 @@ numrecordwait=0;%Wait for numrecordwait records before averaging the data.
 % num=16384; %num is the total number of time points per record. This should be a power of 2 for the FFT algorithm.
 num=32768;
 numtotal=numrecord*num;
-% fs=96000;
-fs = 204800;
+fs=96000;
+% fs = 204800;
 Trecord=num/fs;%The amount of time in each record
 totaltime=numrecord*num/fs; %total time in seconds.  
 delfreq=1/Trecord; %The frequency spacing in Hertz.
